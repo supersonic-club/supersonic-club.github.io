@@ -1,0 +1,116 @@
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 64px;
+        line-height: 72px;
+    }
+    
+    p {
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .content__runners {
+        display: none;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .content__runners {
+        display: none;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    .wrapper:before { width: 100%; animation: none ; -webkit-animation: none ; }
+    .wrapper:after { width: 0%; animation: none ; -webkit-animation: none ; }
+
+    .content__copy {
+        animation: none;
+        -webkit-animation: none;
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+    .social-top a {
+        color: black
+    }
+
+    .phone {
+        height: 800px;
+        margin-top: 40px;
+        width: 100%;
+        max-width: 440px;
+    }
+
+    .content__demo {
+        position: relative;
+        margin: 0 -40px;
+        padding: 0 40px;
+    }
+
+    .content__demo:before {
+        background: linear-gradient(144.79deg, #2B2B2B 0%, #111111 100%);
+        content: '';
+        top: 160px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .content__copy {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+        margin-top: 24px;
+    }
+
+    p {
+        margin-top: 24px;
+        padding-right: 0;
+        max-width: 100%;
+    }
+
+    .button {
+        margin-top: 24px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .break-line--heading {
+        display: inline;
+    }
+
+    .content__demo,
+    .content__copy {
+        justify-content: center;
+    }
+
+    a.logo-top {
+        color: black;
+        animation: none;
+        -webkit-animation: none    ;
+}
+}
+
+@media (min-height: 1000px) {
+    .content__demo {
+        align-items: center;
+    }
+
+    .phone {
+        max-height: 890px;
+    }
+}

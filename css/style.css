@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'FuturaBT';
+    src: url('/assets/fonts/FuturaBT-CondExtraBlackIt.woff2') format('woff2'),
+        url('/assets/fonts/FuturaBT-CondExtraBlackIt.woff') format('woff'),
+        url('/assets/fonts/FuturaBT-CondExtraBlackIt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Roboto, sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper > * {
+    width: 100vw;
+}
+
+.wrapper:after,
+.wrapper:before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.wrapper:before {
+    width: 100%;
+    transform: translateX(-100%);
+    background: linear-gradient(281.13deg, #FEDFDC 25%, #CDE7C7 100%);
+    animation: 1s ease 0.4s forwards expand-light;
+    -webkit-animation: 1s ease 0.4s forwards expand-light;
+}
+
+.wrapper:after {
+    width: 100%;
+    transform: translateX(0);
+    background: linear-gradient(144.79deg, #2B2B2B 0%, #111111 100%);
+    animation: 1s ease 0.4s forwards contract-dark;
+    -webkit-animation: 1s ease 0.4s forwards contract-dark;
+}
+
+@keyframes contract-dark {
+    0% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+    100% {
+        transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        -moz-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        -o-transform: translateX(50%);
+    }
+}
+
+@keyframes expand-light {
+    0% {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+    }
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-top {
+    font-size: 20px;
+    font-family: FuturaBT, sans-serif;
+    color: white;
+    opacity: 0.6;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.14s ease;
+    -webkit-transition: opacity 0.14s ease;
+    -moz-transition: opacity 0.14s ease;
+    -ms-transition: opacity 0.14s ease;
+    -o-transition: opacity 0.14s ease;
+    animation: 0.3s ease 0.4s forwards turn-black;
+    -webkit-animation: 0.3s ease 0.4s forwards turn-black;
+}
+
+.logo-top:hover {
+    opacity: 1;
+}
+
+@keyframes turn-black {
+    from { color: white }
+    to { color: black }
+}
+
+.social-top {
+    margin: 0 -8px;
+    font-size: 0;
+}
+
+.social-top a {
+    margin: 0 8px;
+    opacity: 0.6;
+    color: white;
+    transition: opacity 0.14s ease;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    -webkit-transition: opacity 0.14s ease;
+    -moz-transition: opacity 0.14s ease;
+    -ms-transition: opacity 0.14s ease;
+    -o-transition: opacity 0.14s ease;
+}
+
+.social-top a:hover {
+    opacity: 1
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.content__copy {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    animation: 1s ease 0.5s forwards fadein;
+    -webkit-animation: 1s ease 0.5s forwards fadein;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform:  translateX(-100px);
+        -webkit-transform:  translateX(-100px);
+        -moz-transform:  translateX(-100px);
+        -ms-transform:  translateX(-100px);
+        -o-transform:  translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform:  translateX(0);
+        -webkit-transform:  translateX(0);
+        -moz-transform:  translateX(0);
+        -ms-transform:  translateX(0);
+        -o-transform:  translateX(0);
+}
+}
+
+.content__runners {
+    flex: 1
+}
+
+.hero-image {
+    mix-blend-mode: darken;
+}
+
+.break-line {
+    display: block;
+}
+
+h1 {
+    font-size: 80px;
+    line-height: 88px;
+    font-family: FuturaBT, sans-serif;
+    margin-top: 40px;
+    color: #222;
+}
+
+p {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    max-width: 420px;
+}
+
+.button {
+    background: #1ACA5F;
+    box-shadow: 0px 0px 30px rgba(26, 202, 95, 0.4);
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+
+    height: 50px;
+    line-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 0 32px;
+
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 40px;
+}
+
+.button svg {
+    margin-right: 8px;
+    position: relative;
+    top: -1px;
+}
+
+.content__demo {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
+}
+
+.content__runners {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.phone {
+    width: 440px;
+    max-height: 800px;
+    height: 100%;
+    background: url(/assets/images/iphone.png) center top no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 5px 40px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(0 5px 40px rgba(0, 0, 0, 0.5));
+}
+
+.aspect-ratio-box {
+    position: relative;
+    width: 100%;
+    height: 0;
+    top: 64px;
+    padding-top: calc(684 / 590 * 100%);
+}
+
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -10%;
+    top: 0;
+    mask-image: linear-gradient(90deg, rgba(43, 43, 43, 0) 9.83%, #111111 39.15%);
+    -webkit-mask-image: linear-gradient(90deg, rgba(43, 43, 43, 0) 9.83%, #111111 39.15%);
+}
+
+.bubbles__child {
+    background: #444;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-size: contain;
+    opacity: 0;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    animation: 0.2s ease 0s forwards bubble-up;
+    -webkit-animation: 0.2s ease 0s forwards bubble-up;
+}
+
+.bubbles__child--1 {
+    width: 17.28813559322034%;
+    height: 14.912280701754385%;
+    top: 0.7309941520467835%;
+    left: 19.661016949152543%;
+    background-image: url(/assets/images/runners/1.png);
+
+    animation-delay: 1s;
+}
+
+.bubbles__child--2 {
+    width: 13.559322033898304%;
+    height: 11.695906432748536%;
+    top: 20.029239766081872%;
+    left: 8.64406779661017%;
+    background-image: url(/assets/images/runners/2.png);
+    animation-delay: 1.05s;
+}
+
+.bubbles__child--3 {
+    width: 30.677966101694913%;
+    height: 26.46198830409357%;
+    top: 38.30409356725146%;
+    left: 0%;
+    background-image: url(/assets/images/runners/3.png);
+    animation-delay: 1.10s;
+}
+
+.bubbles__child--4 {
+    width: 27.11864406779661%;
+    height: 23.391812865497073%;
+    top: 69.88304093567251%;
+    left: 13.728813559322035%;
+    background-image: url(/assets/images/runners/4.png);
+    animation-delay: 1.15s;
+}
+
+.bubbles__child--5 {
+    width: 24.576271186440678%;
+    height: 21.198830409356724%;
+    top: 18.859649122807017%;
+    left: 26.27118644067797%;
+    background-image: url(/assets/images/runners/5.png);
+    animation-delay: 1.20s;
+}
+
+.bubbles__child--6 {
+    width: 27.45762711864407%;
+    height: 23.684210526315788%;
+    top: 44.88304093567251%;
+    left: 36.271186440677965%;
+    background-image: url(/assets/images/runners/6.png);
+    animation-delay: 1.25s;
+}
+
+.bubbles__child--7 {
+    width: 32.3728813559322%;
+    height: 27.923976608187136%;
+    top: 72.07602339181285%;
+    left: 46.440677966101696%;
+    background-image: url(/assets/images/runners/7.png);
+    animation-delay: 1.30s;
+}
+
+.bubbles__child--8 {
+    width: 27.11864406779661%;
+    height: 23.391812865497073%;
+    top: 0%;
+    left: 50.847457627118644%;
+    background-image: url(/assets/images/runners/8.png);
+    animation-delay: 1.35s;
+}
+
+.bubbles__child--9 {
+    width: 16.101694915254235%;
+    height: 13.88888888888889%;
+    top: 29.093567251461987%;
+    left: 56.271186440677965%;
+    background-image: url(/assets/images/runners/9.png);
+    animation-delay: 1.40s;
+}
+
+.bubbles__child--10 {
+    width: 17.28813559322034%;
+    height: 14.912280701754385%;
+    top: 24.853801169590643%;
+    left: 79.66101694915254%;
+    background-image: url(/assets/images/runners/10.png);
+    animation-delay: 1.45s;
+}
+
+.bubbles__child--11 {
+    width: 30.677966101694913%;
+    height: 26.46198830409357%;
+    top: 45.614035087719294%;
+    left: 69.32203389830508%;
+    background-image: url(/assets/images/runners/11.png);
+    animation-delay: 1.50s;
+}
+
+.bubbles__child--12 {
+    width: 13.559322033898304%;
+    height: 11.695906432748536%;
+    top: 76.31578947368422%;
+    left: 83.38983050847457%;
+    background-image: url(/assets/images/runners/12.png);
+    animation-delay: 1.55s;
+}
+
+@keyframes bubble-up {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        -o-transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
