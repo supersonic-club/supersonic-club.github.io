@@ -55,7 +55,8 @@
     }
 
     .phone {
-        height: 800px;
+        height: auto;
+        max-height: auto;
         margin-top: 40px;
         width: 100%;
         max-width: 440px;
@@ -64,7 +65,7 @@
     .content__demo {
         position: relative;
         margin: 0 -40px;
-        padding: 0 40px;
+        padding: 0 40px 40px;
     }
 
     .content__demo:before {
