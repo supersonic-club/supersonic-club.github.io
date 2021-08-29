@@ -56,7 +56,7 @@
 
     .phone {
         height: auto;
-        max-height: auto;
+        max-height: unset;
         margin-top: 40px;
         width: 100%;
         max-width: 440px;
