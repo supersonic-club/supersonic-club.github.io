@@ -275,6 +275,13 @@ p {
     -webkit-filter: drop-shadow(0 5px 40px rgba(0, 0, 0, 0.5));
 }
 
+.phone img {
+    object-fit: cover;
+    object-position: center top;
+    width: 100%;
+    height: 100%;
+}
+
 .aspect-ratio-box {
     position: relative;
     width: 100%;
