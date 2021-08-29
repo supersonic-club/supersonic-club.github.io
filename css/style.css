@@ -47,7 +47,7 @@ body {
 .wrapper:before {
     width: 100%;
     transform: translateX(-100%);
-    background: linear-gradient(281.13deg, #FEDFDC 25%, #CDE7C7 100%);
+    background: linear-gradient(281.13deg, #FEDFDC 0%, #CDE7C7 50%);
     animation: 1s ease 0.4s forwards expand-light;
     -webkit-animation: 1s ease 0.4s forwards expand-light;
 }
