@@ -74,12 +74,13 @@ body {
     width: 100%;
     transform: translateX(0);
     background: linear-gradient(144.79deg, #2B2B2B 0%, #111111 100%);
-    animation: 1s ease 0.4s forwards contract-dark;
-    -webkit-animation: 1s ease 0.4s forwards contract-dark;
+    /* animation: 1s ease 0.4s forwards contract-dark;
+    -webkit-animation: 1s ease 0.4s forwards contract-dark; */
 }
-
+/* 
 @keyframes contract-dark {
     0% {
+        width: 100%;
         transform: translateX(0);
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
@@ -87,13 +88,14 @@ body {
         -o-transform: translateX(0);
     }
     100% {
-        transform: translateX(50%);
-        -webkit-transform: translateX(50%);
-        -moz-transform: translateX(50%);
-        -ms-transform: translateX(50%);
-        -o-transform: translateX(50%);
+        width: 50%;
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
     }
-}
+} */
 
 @keyframes expand-light {
     0% {
