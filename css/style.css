@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
 
 @font-face {
     font-family: 'FuturaBT';
@@ -237,7 +237,7 @@ p {
     color: rgba(0, 0, 0, 0.6);
     font-weight: 600;
     line-height: 1.5;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-top: 40px;
     max-width: 420px;
 }
@@ -251,6 +251,7 @@ p {
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
 
+    letter-spacing: 0.5px;
     height: 50px;
     line-height: 50px;
     display: inline-flex;
