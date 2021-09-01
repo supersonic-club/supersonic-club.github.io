@@ -21,6 +21,16 @@ body {
     font-family: Roboto, sans-serif;
 }
 
+body.modal-open {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+body.modal-open .modal {
+    visibility: visible;
+    opacity: 1;
+}
+
 .wrapper {
     position: relative;
     min-height: 100vh;
@@ -265,6 +275,11 @@ p {
     margin-top: 40px;
 }
 
+.button--disabled {
+    opacity: 0.75;
+    pointer-events: none;
+}
+
 .button svg {
     margin-right: 8px;
     position: relative;
@@ -466,4 +481,132 @@ p {
         -ms-transform: scale(1);
         -o-transform: scale(1);
     }
+}
+
+
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.modal__main {
+    position: fixed;
+    width: calc(100% - 80px);
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(281.13deg, #FEDFDC 0%, #CDE7C7 50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal__main p.form-heading {
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 150%;
+    margin-top: 0;
+}
+
+.modal__main label { 
+    display: block; 
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+.modal__main input {
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal__main .note, 
+.modal__main .form__error {
+    font-size: 16px;
+    margin-top: 8px;
+    font-weight: 400;
+    display: none;
+    letter-spacing: 0;
+}
+
+.modal__main input[type=email] {
+    height: 48px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    outline: 0;
+    border: 0;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+.modal__main input[type=submit], .button--cancel {
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    margin-top: 30px;
+    cursor: pointer;
+    padding: 0 40px;
+    margin-right: 10px;
+}
+
+.modal__main .button--cancel {
+    color: rgba(0, 0, 0, 0.5);
+    background: transparent;
+    border: 1px solid #1ACA5F;
+    opacity: 1;
+    visibility: visible;
+    text-align: center;
+    transition: opacity 0.2s ease;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -ms-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+}
+
+.modal__overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.beta-form .button--disabled {
+    display: none;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.beta-form .button--disabled svg {
+    top: 0;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.beta-form--submitting .button--cancel {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.beta-form--submitting .button--disabled {
+    display: inline-flex;
+}
+
+.beta-form--submitting input[type=submit] {
+    display: none;
+}
+
+.beta-form--submitted .form-fields {
+     display: none;
+}
+
+.beta-form--submitted .note {
+    display: block;
+}
+
+.beta-form--error .form__error {
+    display: block;
 }
