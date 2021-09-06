@@ -133,7 +133,7 @@
                         </a>
                         <a href="" class="button  button--cancel">Close</a>
                     </div>
-                    <p class="form__error">There was an error submitting the form, please try again.</p>
+                    <p class="form__error"></p>
                 </div>
             </form>
         </div>
@@ -147,6 +147,7 @@
 
         modalTrigger.addEventListener('click', function (e) {
             document.body.classList.add('modal-open')
+            document.querySelector('input#email').focus()
             e.preventDefault()
         })
 
@@ -169,11 +170,25 @@
             xhr.open('POST', url, true)
             xhr.setRequestHeader('Content-Type', 'application/json')
             xhr.onreadystatechange = function() {
+                form.classList.remove('beta-form--submitting')
+                form.classList.remove('beta-form--error')
+                form.classList.remove('beta-form--submitted')
+
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var json = JSON.parse(xhr.responseText)
                     console.log(json)
-                    form.classList.remove('beta-form--submitting')
                     form.classList.add('beta-form--submitted')
+                }
+                else {
+                    form.classList.add('beta-form--error')
+
+                    let response = xhr.responseText
+                    if (response.includes('duplicate')) {
+                        document.querySelector('.form__error').innerText = 'You\'re already on the list!'
+                    }
+                    else {
+                        document.querySelector('.form__error').innerText = 'There was an error submitting the form, please try again.'
+                    }
                 }
             }
 
