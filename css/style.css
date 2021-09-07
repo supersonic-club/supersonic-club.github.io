@@ -19,6 +19,7 @@
 body {
     min-height: 100vh;
     font-family: Roboto, sans-serif;
+    background: black
 }
 
 body.modal-open {
@@ -35,9 +36,6 @@ body.modal-open .modal {
     position: relative;
     min-height: 100vh;
     z-index: 0;
-    padding-top: 32px;
-    display: flex;
-    flex-direction: column;
 }
 
 .wrapper > * {
@@ -47,7 +45,7 @@ body.modal-open .modal {
 .wrapper:after,
 .wrapper:before {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 50%;
     top: 0;
     bottom: 0;
@@ -60,7 +58,7 @@ body.modal-open .modal {
 }
 
 .gradient-canvas {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -134,37 +132,52 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 24px;
+    align-self: flex-start;
+    z-index: 5;
 }
 
 .logo-top {
     font-size: 20px;
     font-family: FuturaBT, sans-serif;
-    color: white;
-    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: opacity 0.14s ease;
-    -webkit-transition: opacity 0.14s ease;
-    -moz-transition: opacity 0.14s ease;
-    -ms-transition: opacity 0.14s ease;
-    -o-transition: opacity 0.14s ease;
     animation: 0.3s ease 0.4s forwards turn-black;
     -webkit-animation: 0.3s ease 0.4s forwards turn-black;
-}
-
-.logo-top:hover {
-    opacity: 1;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    -moz-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -webkit-border-radius: 16px;
 }
 
 @keyframes turn-black {
-    from { color: white }
-    to { color: black }
+    from { color: rgba(255, 255, 255, 0.6); }
+    to { color: rgba(0, 0, 0, 0.6); }
 }
 
 .social-top {
     margin: 0 -8px;
     font-size: 0;
+
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    -moz-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -webkit-border-radius: 16px;
 }
 
 .social-top a {
@@ -189,11 +202,15 @@ header {
     display: flex;
     flex: 1;
     align-items: center;
+    min-height: calc(100vh - 59px);
+    padding-top: 32px;
 }
 
 .content__copy {
     flex: 1;
     opacity: 0;
+    align-self: stretch;
+
     transform: translateX(-100px);
     -webkit-transform: translateX(-100px);
     -moz-transform: translateX(-100px);
@@ -201,6 +218,11 @@ header {
     -o-transform: translateX(-100px);
     animation: 1s ease 0.5s forwards fadein;
     -webkit-animation: 1s ease 0.5s forwards fadein;
+}
+
+.hero {
+    padding-top: 80px;
+    width: calc(50% - 300px);
 }
 
 @keyframes fadein {
@@ -220,10 +242,6 @@ header {
         -ms-transform:  translateX(0);
         -o-transform:  translateX(0);
 }
-}
-
-.content__runners {
-    flex: 1
 }
 
 .hero-image {
@@ -249,27 +267,22 @@ p {
     line-height: 1.5;
     letter-spacing: 0.5px;
     margin-top: 40px;
-    max-width: 420px;
 }
 
 .button {
     background: #1ACA5F;
     box-shadow: 0px 0px 30px rgba(26, 202, 95, 0.4);
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    -ms-border-radius: 500px;
+    -o-border-radius: 500px;
     letter-spacing: 0.5px;
-    height: 50px;
-    line-height: 50px;
     display: inline-flex;
     align-items: center;
     color: white;
     text-decoration: none;
-    padding: 0 32px;
-
+    padding: 16px 32px;
     font-size: 18px;
     font-weight: 600;
     margin-top: 40px;
@@ -281,15 +294,28 @@ p {
 }
 
 .button svg {
-    margin-right: 8px;
+    margin-right: 12px;
     position: relative;
     top: -1px;
 }
 
 .content__demo {
-    align-self: stretch;
     display: flex;
     align-items: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.content__demo .more-info, 
+.content__demo footer {
+    display: none;
 }
 
 .content__runners {
@@ -297,6 +323,13 @@ p {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
 }
 
 .phone {
@@ -309,6 +342,7 @@ p {
     z-index: 2;
     filter: drop-shadow(0 5px 40px rgba(0, 0, 0, 0.5));
     -webkit-filter: drop-shadow(0 5px 40px rgba(0, 0, 0, 0.5));
+    overflow: hidden;
 }
 
 .phone img {
@@ -330,10 +364,17 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
-    left: -10%;
-    top: 0;
+    left: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 540px;
+    max-height: 626px;
     mask-image: linear-gradient(90deg, rgba(43, 43, 43, 0) 9.83%, #111111 39.15%);
     -webkit-mask-image: linear-gradient(90deg, rgba(43, 43, 43, 0) 9.83%, #111111 39.15%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 
 .bubbles__child {
@@ -484,6 +525,54 @@ p {
 }
 
 
+/** More info **/
+.more-info {
+    width: calc(50% - 300px);
+    margin-top: 80px;
+}
+
+.more-info__tile__icon {
+    height: 56px;
+    width: 56px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-bottom: 24px;
+}
+
+.more-info__tile p {
+    font-size: 18px;
+    margin-top: 24px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.more-info__tile h2 {
+    font-size: 28px;
+    font-family: FuturaBT, sans-serif;
+    color: rgba(0, 0, 0, 0.75);
+    letter-spacing: 1px;
+}
+
+.more-info__tile:not(:last-of-type) {
+    margin-bottom: 48px;
+}
+
+footer {
+    width: calc(50% - 300px);
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+footer p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 16px;
+}
+
+/** Modal **/
 .modal {
     visibility: hidden;
     opacity: 0;
