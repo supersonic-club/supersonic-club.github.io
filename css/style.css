@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 @font-face {
     font-family: 'FuturaBT';
@@ -263,9 +263,8 @@ h1 {
 p {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.6);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5;
-    letter-spacing: 0.5px;
     margin-top: 40px;
 }
 
@@ -277,14 +276,13 @@ p {
     -moz-border-radius: 500px;
     -ms-border-radius: 500px;
     -o-border-radius: 500px;
-    letter-spacing: 0.5px;
     display: inline-flex;
     align-items: center;
     color: white;
     text-decoration: none;
     padding: 16px 32px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 40px;
 }
 
@@ -602,7 +600,7 @@ footer p {
     display: block; 
     font-family: 'Roboto', sans-serif;
     color: rgba(0, 0, 0, 0.5);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .modal__main input {
