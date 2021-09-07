@@ -167,8 +167,24 @@
 
 @media (min-height: 1000px) {
     .content__demo {
-        align-items: center;
+        top: 50%;
+        height: 890px;
+        transform: translate3D(-50%, -50%, 0) ;
+        -webkit-transform: translate3D(-50%, -50%, 0) ;
+        -moz-transform: translate3D(-50%, -50%, 0) ;
+        -ms-transform: translate3D(-50%, -50%, 0) ;
+        -o-transform: translate3D(-50%, -50%, 0) ;
+}
+
+    .phone {
+        max-height: 890px;
     }
+}
+
+@media (max-height: 900px) {
+    .content__demo {
+        top: 80px;
+}
 
     .phone {
         max-height: 890px;
