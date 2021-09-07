@@ -181,7 +181,7 @@
                     form.classList.add('beta-form--submitted')
 
                     let discordXhr = new XMLHttpRequest()
-                    discordXhr.open('POST', 'https://supersonic-hook.heroku.com/discord', true)
+                    discordXhr.open('POST', 'https://discord.supersonic.run/discord', true)
                     discordXhr.setRequestHeader('Content-Type', 'application/json')
                     discordXhr.send(JSON.stringify({'content': emailAddress + ' just signed up!'}))
                 }
