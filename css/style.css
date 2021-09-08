@@ -64,10 +64,10 @@ body.modal-open .modal {
     top: 0;
     left: 0;
 
-    --gradient-color-1: #CDE7C7;
-    --gradient-color-2: #FEDFDC;
-    --gradient-color-3: #FFC8DD;
-    --gradient-color-4: #65DC93;  
+    --gradient-color-1: #65DC93;
+    --gradient-color-2: #CDE7C7;
+    --gradient-color-3: #FFD7C3;
+    --gradient-color-4: #FEDFDC;  
 
     transform: translateX(-100%);
     animation: 1s ease 0.4s forwards expand-light;
