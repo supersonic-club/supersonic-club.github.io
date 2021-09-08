@@ -587,6 +587,10 @@ footer p {
     margin-top: 16px;
 }
 
+footer a {
+    color: rgba(0, 0, 0, 0.75);
+}
+
 /** Modal **/
 .modal {
     visibility: hidden;

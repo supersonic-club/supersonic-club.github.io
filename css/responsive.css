@@ -154,6 +154,10 @@
         color: rgba(255, 255, 255, 0.5)
     }
 
+    footer a {
+        color: rgba(255, 255, 255, 0.75);
+    }
+    
     .content__demo footer {
         padding-bottom: 0;
     }
