@@ -543,7 +543,7 @@ p {
 
 .more-info__tile p {
     font-size: 18px;
-    margin-top: 24px;
+    margin-top: 20px;
     color: rgba(0, 0, 0, 0.6);
 }
 
@@ -552,6 +552,23 @@ p {
     font-family: FuturaBT, sans-serif;
     color: rgba(0, 0, 0, 0.75);
     letter-spacing: 1px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.more-info__tile h2:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 80%;
+    width: 4px;
+    top: 6px;
+    border-radius: 2px;
+    background: #1ACA5F;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .more-info__tile:not(:last-of-type) {
