@@ -190,14 +190,6 @@
     .more-info__tile {
         background: rgba(255, 255, 255, 0.05)
     }
-
-    .phone video {
-        border-radius: 30px;
-        -webkit-border-radius: 30px;
-        -moz-border-radius: 30px;
-        -ms-border-radius: 30px;
-        -o-border-radius: 30px;
-    }
 }
 
 @media (min-height: 1000px) {

@@ -365,11 +365,16 @@ p {
     top: 2.55%;
     width: 89%;
     height: 95%;
-    border-radius: 40px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    -ms-border-radius: 40px;
-    -o-border-radius: 40px;
+}
+
+.phone .video-mask {
+    position: absolute;
+    left: 5.5%;
+    top: 2.55%;
+    width: 89%;
+    height: 95%;
+    background: url(/assets/images/video-mask.png) no-repeat;
+    background-size: contain
 }
 
 .video-container {
