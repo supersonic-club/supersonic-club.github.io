@@ -55,6 +55,14 @@ body.modal-open .modal {
 .wrapper:before {
     width: 100%;
     background: linear-gradient(281.13deg, #FEDFDC 0%, #CDE7C7 50%);
+    transform: translateX(-100%);
+    animation: 1s ease 0.4s forwards expand-light;
+    -webkit-animation: 1s ease 0.4s forwards expand-light;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    z-index: 0;
 }
 
 .gradient-canvas {

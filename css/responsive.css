@@ -3,7 +3,7 @@
         font-size: 64px;
         line-height: 72px;
     }
-    
+
     p {
         padding-right: 40px;
     }
@@ -31,11 +31,29 @@
         padding-top: 40px;
     }
 
-    .wrapper:before { width: 100%; animation: none ; -webkit-animation: none ; }
-    .wrapper:after { width: 0%; animation: none ; -webkit-animation: none ; }
+    .wrapper:before {
+        width: 100%;
+        animation: none;
+        -webkit-animation: none;
+        top: 0;
+        bottom: unset;
+        height: 100%;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+
+    .wrapper:after {
+        width: 0%;
+        animation: none;
+        -webkit-animation: none;
+    }
+
     .gradient-canvas {
         width: 100%;
-        animation: none ;
+        animation: none;
         -webkit-animation: none;
         transform: none;
         -webkit-transform: none;
@@ -132,17 +150,19 @@
         -webkit-animation: none;
     }
 
-    .hero, .more-info, footer {
+    .hero,
+    .more-info,
+    footer {
         width: 100%
     }
 
 
-    .content__demo .more-info, 
+    .content__demo .more-info,
     .content__demo footer {
         display: block;
         position: relative;
     }
-    
+
     .content__demo .more-info h2,
     .content__demo .more-info p,
     .content__demo footer p {
@@ -157,28 +177,28 @@
     footer a {
         color: rgba(255, 255, 255, 0.75);
     }
-    
+
     .content__demo footer {
         padding-bottom: 0;
     }
 
-    .content__copy .more-info, 
+    .content__copy .more-info,
     .content__copy footer {
         display: none;
     }
-    
+
 }
 
 @media (min-height: 1000px) {
     .content__demo {
         top: 50%;
         height: 890px;
-        transform: translate3D(-50%, -50%, 0) ;
-        -webkit-transform: translate3D(-50%, -50%, 0) ;
-        -moz-transform: translate3D(-50%, -50%, 0) ;
-        -ms-transform: translate3D(-50%, -50%, 0) ;
-        -o-transform: translate3D(-50%, -50%, 0) ;
-}
+        transform: translate3D(-50%, -50%, 0);
+        -webkit-transform: translate3D(-50%, -50%, 0);
+        -moz-transform: translate3D(-50%, -50%, 0);
+        -ms-transform: translate3D(-50%, -50%, 0);
+        -o-transform: translate3D(-50%, -50%, 0);
+    }
 
     .phone {
         max-height: 890px;
@@ -188,7 +208,7 @@
 @media (max-height: 900px) {
     .content__demo {
         top: 80px;
-}
+    }
 
     .phone {
         max-height: 890px;
