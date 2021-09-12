@@ -92,7 +92,7 @@
     .content__demo {
         position: relative;
         margin: 0 -40px;
-        padding: 0 40px 40px;
+        padding: 0 24px 40px;
         left: 0;
         transform: none;
         -webkit-transform: none;
@@ -187,6 +187,9 @@
         display: none;
     }
 
+    .more-info__tile {
+        background: rgba(255, 255, 255, 0.05)
+    }
 }
 
 @media (min-height: 1000px) {

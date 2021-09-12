@@ -351,11 +351,36 @@ p {
     overflow: hidden;
 }
 
-.phone img {
+.phone img,
+.phone video {
     object-fit: cover;
     object-position: center top;
     width: 100%;
     height: 100%;
+}
+
+.phone video {
+    position: absolute;
+    left: 5.5%;
+    top: 2.55%;
+    width: 89%;
+    height: 95%;
+}
+
+.phone .video-mask {
+    position: absolute;
+    left: 5.5%;
+    top: 2.55%;
+    width: 89%;
+    height: 95%;
+    background: url(/assets/images/video-mask.png) no-repeat;
+    background-size: contain
+}
+
+.video-container {
+    padding-top: calc(760 / 375 * 100%);
+    height: 0;
+    position: relative;
 }
 
 .aspect-ratio-box {
