@@ -46,6 +46,8 @@ form.addEventListener('submit', function (e) {
             discordXhr.send(JSON.stringify({
                 'content': emailAddress + ' just signed up!'
             }))
+
+            umami('Signup form submit');
         } else {
             form.classList.add('beta-form--error')
 
