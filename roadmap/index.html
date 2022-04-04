@@ -16,14 +16,16 @@
 <script async src="https://widget.frill.co/v2/widget.js"></script>
 <!-- End Frill Widget -->
     
+<div class="button-hider"></div>
     <style>
 * {
   box-sizing: border-box;
+  overscroll-behavior: none
 }
 
       body {
         margin: 0;
-        background: linear-gradient(to bottom, rgb(14, 14, 14) 0%, rgb(14, 14, 14) 50%,white 50%, white 100%);
+        background: linear-gradient(to bottom, #0e0e0e 0%, #0e0e0e 50%,white 50%, white 100%);
       }
 
       body > div {
@@ -39,6 +41,15 @@
         border-radius: 8px;
         padding: 12px;
         background: rgba(0, 0, 0, 0.75);
+      }
+
+      .button-hider {
+        width: 50%;
+        height: 70px;
+        right: 0;
+        top: 0;
+        position: absolute;
+        background: #0e0e0e
       }
     </style>
   </body>
