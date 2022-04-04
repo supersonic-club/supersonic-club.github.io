@@ -7,15 +7,38 @@
     <title>Announcements | Supersonic</title>
   </head>
   <body>
+<div class="loader">
+  <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/master/svg-loaders/oval.svg" width="32" alt="">
+</div>
+
 <!-- Frill Widget (https://frill.co) -->
 <div data-frill-widget="a70989a9-2b33-40c6-bd52-02ae66dc3a7f" style="width: 100%; height: 100%;"></div>
 <script async src="https://widget.frill.co/v2/widget.js"></script>
 <!-- End Frill Widget -->
     
     <style>
+* {
+  box-sizing: border-box;
+}
+
       body {
         margin: 0;
         background: linear-gradient(to bottom, rgb(14, 14, 14) 0%, rgb(14, 14, 14) 50%,white 50%, white 100%);
+      }
+
+      body > div {
+        position: relative;
+      }
+
+      .loader {
+        height: 56px;
+        width: 56px;
+        position: fixed;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        border-radius: 8px;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.75);
       }
     </style>
   </body>
