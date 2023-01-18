@@ -341,6 +341,7 @@ function createLandscape(params){
     });
   }
 
+  
   function sky(){
     sky = new THREE.Sky();
     sky.scale.setScalar( 450000 );
