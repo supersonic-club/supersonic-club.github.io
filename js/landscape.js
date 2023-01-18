@@ -241,7 +241,7 @@ uniform float time;
 `
 
 createLandscape({
-  palleteImage:'img/pallete.png'
+  palleteImage:'https://assets.supersonic.run/img/pallete.png'
 })
 
 function createLandscape(params){
@@ -276,7 +276,7 @@ function createLandscape(params){
 
   function sceneSetup(){
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color( 0x333333 )
+    var fogColor = new THREE.Color( 0x180059 )
     scene.background = fogColor;
     scene.fog = new THREE.Fog(fogColor, 0, 400);
 
@@ -341,14 +341,13 @@ function createLandscape(params){
     });
   }
 
-  
   function sky(){
     sky = new THREE.Sky();
     sky.scale.setScalar( 450000 );
-    sky.material.uniforms.turbidity.value = 13;
+    sky.material.uniforms.turbidity.value = 10;
     sky.material.uniforms.rayleigh.value = 1.2;
-    sky.material.uniforms.luminance.value = 1;
-    sky.material.uniforms.mieCoefficient.value = 0.1;
+    sky.material.uniforms.luminance.value = 0.8;
+    sky.material.uniforms.mieCoefficient.value = 0.5;
     sky.material.uniforms.mieDirectionalG.value = 0.58;
     
     scene.add( sky );
