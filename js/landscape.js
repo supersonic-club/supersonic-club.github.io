@@ -339,6 +339,8 @@ function createLandscape(params){
       terrain.material.uniforms.pallete.value = texture;
       terrain.material.needsUpdate = true;
     });
+
+    
   }
 
   function sky(){
