@@ -282,12 +282,12 @@ function createLandscape(params) {
 
   function sceneSetup() {
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color(0x180059)
+    var fogColor = new THREE.Color(0x4E2DAB)
     scene.background = fogColor;
     scene.fog = new THREE.Fog(fogColor, 0, 400);
 
 
-    sky()
+    // sky()
 
     camera = new THREE.PerspectiveCamera(60, width / height, .1, 10000);
     camera.position.y = 8;
@@ -366,8 +366,6 @@ function createLandscape(params) {
       terrain.material.uniforms.pallete.value = texture;
       terrain.material.needsUpdate = true;
     });
-
-
   }
 
   function sky() {
