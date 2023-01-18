@@ -346,7 +346,7 @@ function createLandscape(params){
     sky.scale.setScalar( 450000 );
     sky.material.uniforms.turbidity.value = 10;
     sky.material.uniforms.rayleigh.value = 1.2;
-    sky.material.uniforms.luminance.value = 0.8;
+    sky.material.uniforms.luminance.value = 0;
     sky.material.uniforms.mieCoefficient.value = 0.5;
     sky.material.uniforms.mieDirectionalG.value = 0.58;
     
