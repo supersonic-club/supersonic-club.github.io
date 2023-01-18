@@ -1,4 +1,3 @@
-
 let customVertex = `vec3 mod289(vec3 x)
 {
   return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -216,35 +215,35 @@ void main(){
 
 let customFragment = `
 uniform float time;
-					uniform vec3 color;
-					uniform sampler2D pallete;
-					varying float vDisplace;
+uniform vec3 color;
+uniform sampler2D pallete;
+varying float vDisplace;
 
-					uniform vec3 fogColor;
-					uniform float fogNear;
-					uniform float fogFar;
-					varying float fogDepth;
+uniform vec3 fogColor;
+uniform float fogNear;
+uniform float fogFar;
+varying float fogDepth;
 
-					void main(){
+void main(){
 
-						vec2 stripPos = vec2( 0.0, vDisplace * (sin(time)*0.5+0.7) );
-						vec4 stripColor = texture2D( pallete, stripPos );
-						stripColor *= pow(1.0-vDisplace, 1.0);
+  vec2 stripPos = vec2( 0.0, vDisplace * (sin(time)*0.5+0.7) );
+  vec4 stripColor = texture2D( pallete, stripPos );
+  stripColor *= pow(1.0-vDisplace, 1.0);
 
-						gl_FragColor = stripColor;
+  gl_FragColor = stripColor;
 
-						#ifdef USE_FOG
-							float fogFactor = smoothstep( fogNear, fogFar, fogDepth );
-							gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
-						#endif
-					}
+  #ifdef USE_FOG
+    float fogFactor = smoothstep( fogNear, fogFar, fogDepth );
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
+  #endif
+}
 `
 
 createLandscape({
-  palleteImage:'https://assets.supersonic.run/img/pallete.png'
+  palleteImage: 'https://assets.supersonic.run/img/pallete.png'
 })
 
-function createLandscape(params){
+function createLandscape(params) {
 
   var container = document.querySelector(".landscape")
   var width = window.innerWidth;
@@ -253,75 +252,103 @@ function createLandscape(params){
   var scene, renderer, camera;
   var terrain;
 
-  var mouse = { x:0, y:0, xDamped:0, yDamped:0 };
+  var mouse = {
+    x: 0,
+    y: 0,
+    xDamped: 0,
+    yDamped: 0
+  };
   var isMobile = typeof window.orientation !== 'undefined'
 
   init();
 
-  function init(){
+  function init() {
 
     sceneSetup();
     sceneElements();
     sceneTextures();
     render();
 
-    if(isMobile)
-      window.addEventListener("touchmove", onInputMove, {passive:false})
+    if (isMobile)
+      window.addEventListener("touchmove", onInputMove, {
+        passive: false
+      })
     else
       window.addEventListener("mousemove", onInputMove)
-    
+
     window.addEventListener("resize", resize)
     resize()
   }
 
-  function sceneSetup(){
+  function sceneSetup() {
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color( 0x180059 )
+    var fogColor = new THREE.Color(0x180059)
     scene.background = fogColor;
     scene.fog = new THREE.Fog(fogColor, 0, 400);
 
-    
+
     sky()
 
     camera = new THREE.PerspectiveCamera(60, width / height, .1, 10000);
     camera.position.y = 8;
     camera.position.z = 4;
-    
+
     ambientLight = new THREE.AmbientLight(0xffffff, 1);
     scene.add(ambientLight)
-    
 
-    renderer = new THREE.WebGLRenderer( {
-      canvas:container,
-      antialias:true
-    } );
+
+    renderer = new THREE.WebGLRenderer({
+      canvas: container,
+      antialias: true
+    });
     renderer.setPixelRatio = devicePixelRatio;
     renderer.setSize(width, height);
-    
+
 
   }
 
-  function sceneElements(){
+  function sceneElements() {
 
     var geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
 
     var uniforms = {
-      time: { type: "f", value: 0.0 },
-      scroll: { type: "f", value: 0.0 },
-      distortCenter: { type: "f", value: 0.1 },
-      roadWidth: { type: "f", value: 0.5 },
-      pallete:{ type: "t", value: null},
-      speed: { type: "f", value: 3 },
-      maxHeight: { type: "f", value: 10.0 },
-      color:new THREE.Color(1, 1, 1)
+      time: {
+        type: "f",
+        value: 0.0
+      },
+      scroll: {
+        type: "f",
+        value: 0.0
+      },
+      distortCenter: {
+        type: "f",
+        value: 0.1
+      },
+      roadWidth: {
+        type: "f",
+        value: 0.5
+      },
+      pallete: {
+        type: "t",
+        value: null
+      },
+      speed: {
+        type: "f",
+        value: 3
+      },
+      maxHeight: {
+        type: "f",
+        value: 10.0
+      },
+      color: new THREE.Color(1, 1, 1)
     }
-    
+
     var material = new THREE.ShaderMaterial({
-      uniforms: THREE.UniformsUtils.merge([ THREE.ShaderLib.basic.uniforms, uniforms ]),
+      uniforms: THREE.UniformsUtils.merge([THREE.ShaderLib.basic.uniforms, uniforms]),
       vertexShader: customVertex,
       fragmentShader: customFragment,
-      wireframe:false,
-      fog:true
+      wireframe: false,
+      fog: true
     });
 
     terrain = new THREE.Mesh(geometry, material);
@@ -332,72 +359,74 @@ function createLandscape(params){
 
   }
 
-  function sceneTextures(){
+  function sceneTextures() {
 
     // pallete
-    new THREE.TextureLoader().load( params.palleteImage, function(texture){
+    new THREE.TextureLoader().load(params.palleteImage, function (texture) {
       terrain.material.uniforms.pallete.value = texture;
       terrain.material.needsUpdate = true;
     });
 
-    
+
   }
 
-  function sky(){
+  function sky() {
     sky = new THREE.Sky();
-    sky.scale.setScalar( 450000 );
+    sky.scale.setScalar(450000);
     sky.material.uniforms.turbidity.value = 10;
     sky.material.uniforms.rayleigh.value = 1.2;
     sky.material.uniforms.luminance.value = 0;
     sky.material.uniforms.mieCoefficient.value = 0.5;
     sky.material.uniforms.mieDirectionalG.value = 0.58;
-    
-    scene.add( sky );
+
+    scene.add(sky);
 
     sunSphere = new THREE.Mesh(
-      new THREE.SphereBufferGeometry( 20000, 16, 8 ),
-      new THREE.MeshBasicMaterial( { color: 0xffffff } )
+      new THREE.SphereBufferGeometry(20000, 16, 8),
+      new THREE.MeshBasicMaterial({
+        color: 0xffffff
+      })
     );
     sunSphere.visible = false;
-    scene.add( sunSphere );
-    
-    var theta = Math.PI * ( -0.002 );
-    var phi = 2 * Math.PI * ( -.25 );
+    scene.add(sunSphere);
 
-    sunSphere.position.x = 400000 * Math.cos( phi );
-    sunSphere.position.y = 400000 * Math.sin( phi ) * Math.sin( theta );
-    sunSphere.position.z = 400000 * Math.sin( phi ) * Math.cos( theta );
-    
-    sky.material.uniforms.sunPosition.value.copy( sunSphere.position );
+    var theta = Math.PI * (-0.002);
+    var phi = 2 * Math.PI * (-.25);
+
+    sunSphere.position.x = 400000 * Math.cos(phi);
+    sunSphere.position.y = 400000 * Math.sin(phi) * Math.sin(theta);
+    sunSphere.position.z = 400000 * Math.sin(phi) * Math.cos(theta);
+
+    sky.material.uniforms.sunPosition.value.copy(sunSphere.position);
   }
 
-  function resize(){
+  function resize() {
     width = window.innerWidth
     height = window.innerHeight
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    renderer.setSize( width, height );
+    renderer.setSize(width, height);
   }
 
-  function onInputMove(e){
+  function onInputMove(e) {
     e.preventDefault();
-    
+
     var x, y
-    if(e.type == "mousemove"){
+    if (e.type == "mousemove") {
       x = e.clientX;
       y = e.clientY;
-    }else{
+    } else {
       x = e.changedTouches[0].clientX
       y = e.changedTouches[0].clientY
     }
-    
+
     mouse.x = x;
     mouse.y = y;
-    
+
   }
 
-  function render(){
+  function render() {
     requestAnimationFrame(render)
 
 
@@ -405,7 +434,7 @@ function createLandscape(params){
     mouse.xDamped = lerp(mouse.xDamped, mouse.x, 0.1);
     mouse.yDamped = lerp(mouse.yDamped, mouse.y, 0.1);
 
-    
+
     var time = performance.now() * 0.001
     terrain.material.uniforms.time.value = time
     terrain.material.uniforms.scroll.value = time + map(mouse.yDamped, 0, height, 0, 4);
@@ -418,11 +447,11 @@ function createLandscape(params){
 
   }
 
-  function map (value, start1, stop1, start2, stop2) {
+  function map(value, start1, stop1, start2, stop2) {
     return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1))
   }
 
-  function lerp (start, end, amt){
+  function lerp(start, end, amt) {
     return (1 - amt) * start + amt * end
   }
 }
